@@ -1,0 +1,134 @@
+.orders-items {
+    background: #f6f9fc;
+    height: auto;
+    padding: 50px 0;
+  }
+.orders-items .orders-total {
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: auto;
+  }
+.orders-items .orders-title {
+    display: flex;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 800;    
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(3 0 71 / 9%);
+    padding-bottom: 10px;
+    color: #e94560;
+}
+.orders-items .customer-detail {
+  width: 75%;
+  
+}
+.confirm{
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  background-color: #e94560;
+  color:white;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
+  margin: 10px;
+}
+.orders-items .customer-detailBox {
+  display: flex;
+  margin: 1%;
+  
+}
+.orders-items .orders-textarea {
+ 
+}
+.orders-items .orders-data {
+  border-top: 1px solid rgb(3 0 71 / 9%);
+  margin-top: 20px;
+  padding-top: 10px;
+  height: auto;
+}
+.orders-items .orders-data span {
+  display: flex;
+  padding: 1%;
+  color: #e94560;
+  font-size: 18px;
+  font-weight: 800; 
+  flex-direction: row-reverse;
+}
+.orders-items .item-name {
+  
+  font-size: 16px;
+  font-weight: 500; 
+  height: auto;
+  width: 60%;
+}
+.orders-items .item-price {
+
+  color: gray;
+  height: auto;
+}
+.orders-items .item-price span{
+  display: flex;
+  font-size: 17px;
+  font-weight: 400; 
+  color: black;
+  flex-direction: row-reverse;
+}
+.qw {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.success-data {
+  display: flex;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 700;    
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  color:black;
+}
+.returnButton1{
+  padding: 1%;
+  padding-top: 20px;
+  
+  background-color:white;
+}
+.success-data1 {
+  display: flex;
+  width: 100%;
+  font-size: 23px;
+  font-weight: 600;    
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  color:black;
+}
+
+.successButton {
+  display: flex;
+  flex-direction: row;
+  
+  width: 60%;
+  background-color: #e94560;
+  color:white;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
+  margin: 10px;
+  
+  font-size: 20px;
+  font-weight: 500;  
+}
+.modal-content{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}

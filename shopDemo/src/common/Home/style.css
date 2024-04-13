@@ -1,0 +1,32 @@
+.Home-items {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background-color: blue;
+}
+.AdBox {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.login {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.max {
+    display: flex;
+    width: 100%;
+}
+.L {
+    width: 30%;
+}
+.R {
+    width: 70%;
+}
+.textBox {
+    margin:10px;
+}
+.tip {
+    color: red;
+}
