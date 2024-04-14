@@ -6,7 +6,7 @@ import  {Modal}  from "antd"
 import moment from "moment"
 import axios from "axios"
 
-import logo from "../../components/assets/images/logo.svg"
+import logo from "../../components/assets/images/logo.jpg"
 
 
 const Orders = ({CartItem}) => {
@@ -73,7 +73,7 @@ const product = (CartItem.map((item)=>{
   var price = item.price*item.qty
   
   return(
-    name+' '+price+'*'+qty
+    name+'*'+qty+"="+price
     
   )
 }) )

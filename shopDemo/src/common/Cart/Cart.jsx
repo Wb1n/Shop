@@ -2,7 +2,7 @@ import React ,{ useState } from "react"
 import "./style.css"
 import { Link } from "react-router-dom"
 
-import logo from "../../components/assets/images/logo.svg"
+import logo from "../../components/assets/images/logo.jpg"
 import  {Modal}  from "antd"
 
 const Cart = ({ CartItem, addToCart, decreaseQty, removeQty }) => {

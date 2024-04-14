@@ -15,7 +15,11 @@
 .cart-items .cart-details {
   width: 80%;
 }
-
+.logo img {
+  display: flex;
+  width: 70px;
+  height: auto;
+}
 .cart-items .cart-total {
   width: 30%;
   margin-top: 30px;

@@ -4,7 +4,7 @@ import "./style.css"
 import axios from "axios"
 import { TextField } from "@mui/material"
 import Modal from "antd/es/modal/Modal"
-import logo from "../../components/assets/images/logo.svg"
+import logo from "../../components/assets/images/logo.jpg"
 const Home = () => {
     
     const [visiable1,setVisiable1] = useState(false);
@@ -61,15 +61,13 @@ const Home = () => {
        <section className='head'>
         <div className='container d_flex'>
           <div className='left1 row'>
-          <i> welcome to YesCon!</i>
+          <i> welcome to YesCom!</i>
           </div>
           <div className='right row RText'>
           <i className='fa fa-phone'></i>
-            <label> +88012 3456 7894</label>
+            <label> 3665059897</label>
             <i className='fa fa-envelope'></i>
-            <label> support@ui-lib.com</label>
-            
-            <label> wechat: 123456789</label>
+            <label> yescom868@gmail.com</label>
           </div>
         </div>
       </section>

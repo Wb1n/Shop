@@ -28,7 +28,8 @@
   padding: 1%;
 }
 .search .logo img {
-  width: 100%;
+  display: flex;
+  width: 70px;
   height: auto;
 }
 .search .width {
@@ -126,7 +127,7 @@ header ul li a:hover {
   display: none;
 }
 .search.active {
-  height: 12vh;
+  height: 13vh;
   position: fixed;
   top: 0;
   z-index: 1000;

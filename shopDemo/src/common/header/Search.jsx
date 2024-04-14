@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import logo from "../../components/assets/images/logo.svg"
+import logo from "../../components/assets/images/logo.jpg"
 import { Link } from "react-router-dom"
 import axios from "axios"
 const Search = ({ setState,setRes, CartItem }) => {
