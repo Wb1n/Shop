@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import  {Modal}  from "antd"
+import  {Modal, Upload, message}  from "antd"
 import { TextField } from "@mui/material"
+import { PlusOutlined } from "@ant-design/icons"
+import { Spin } from "antd";
 const Product = ({})=> {   
     const [data,setData] = useState([''])
     //  编辑弹窗
@@ -40,6 +42,8 @@ const Product = ({})=> {
         current_data.brand=document.getElementById('addBrand').value
         current_data.price=parseInt(document.getElementById('addPrice').value)
         current_data.qty=parseInt(document.getElementById('addQty').value)
+        
+        console.log(current_data)
           axios({
             method:'POST',
             url:'/shopItems',
@@ -96,6 +100,25 @@ const Product = ({})=> {
         })
   }
 }
+    function upload(event){
+        var e=window.event||event;
+        var file =e.target.files[0];
+        let formData =new FormData()
+        formData.append('file',file)
+        axios({
+            headers: {
+                "Content-Type": "multipart/form-data" 
+                
+              },
+            method:'POST',
+            url:'/upload',
+            data: formData
+        }).then(response => {
+            console.log('/a', response.data)
+            current_data.img='./images/shops/'+response.data
+            return response.data
+          })
+    }
     function content(){
         var d =data.map((id,i)=>{
                 const removeButton=()=>{
@@ -112,9 +135,10 @@ const Product = ({})=> {
                 <div className="dataBox" key={i} >
                    <div className="idbox" >{id.id}</div>
                    <div className="namebox" >{id.name}</div>        
-                   <div className="ibox" >{id.price}</div>        
-                   <div className="ibox" >{id.brand}</div>        
-                   <div className="ibox" >{id.qty}</div>
+                   <div className="namebox" >{id.price}</div>        
+                   <div className="namebox" >{id.brand}</div>        
+                   <div className="namebox" >{id.qty}</div>
+                   <div className="imgbox" >{id.img}</div>
                    <button className="removeCart" onClick={modifyButton} style={{cursor: "pointer"}}><i className="fa-solid ">\</i></button>
                    <button className="removeCart" onClick={removeButton} style={{cursor: "pointer"}}><i className="fa-solid fa-xmark"></i></button>
                   
@@ -129,9 +153,11 @@ const Product = ({})=> {
                 <div className="title">    
                 <div className="idbox" >id</div>
                 <div className="namebox"  >name</div>
-                <div className="ibox" >price</div>
-                <div className="ibox">brand</div>
-                <div className="ibox" >qty</div>
+                <div className="namebox" >price</div>
+                <div className="namebox">brand</div>
+                <div className="namebox" >qty</div>
+                
+                <div className="imgbox" >img</div>
                 <button className="addButton" onClick={openModal2} style={{cursor: "pointer"}}>+</button>
                 </div>
                 </div>
@@ -161,7 +187,10 @@ const Product = ({})=> {
           maxRows={1}  fullWidth /></div>  
                       <div className="contentBox"> 
                       <TextField className="customer-detailBox" required id="addQty" label="qty" multiline
-          maxRows={1}  fullWidth /></div>  
+          maxRows={1}  fullWidth /></div>
+                        <div>
+                            <input name="file" type="file" onChange={upload}></input>
+                        </div>  
                      </div>
                      </Modal>
             <Modal
@@ -184,6 +213,7 @@ const Product = ({})=> {
                       <div className="contentBox"> 
                       <TextField className="customer-detailBox" required id="modifyQty" label="qty" multiline
           maxRows={1}  fullWidth defaultValue={current_data.qty}/></div>
+                        <div><input name="file" type="file" onChange={upload}></input></div>
                     </div>
                   </Modal>
             <Modal

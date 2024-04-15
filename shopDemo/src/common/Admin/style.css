@@ -64,7 +64,14 @@
     border-bottom: 2px solid black;
     padding-bottom: 10px;
   } 
-  
+  .imgbox {
+    display: flex;
+    width: 35%;
+    word-break:break-all;
+    margin-right: 8px;
+    
+    align-items: center;
+  }
   .addButton {
     display: flex;
     justify-content: center;

@@ -17,12 +17,19 @@ import com.example.demo.util.OrderUtil;
 import com.example.demo.util.UserUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.system.ApplicationHome;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.UUID;
+
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/api/v1")
@@ -148,6 +155,26 @@ public class Index {
         return shopItemService.saveUser(emp);
     }
 
+    @PostMapping(value = "/upload")
+    public String upload(@RequestParam("file") MultipartFile file) {
+        String originalFilename = file.getOriginalFilename();
+
+        System.out.println(originalFilename);
+        String ext ="." + originalFilename.split("\\.")[1];
+        String uuid = UUID.randomUUID().toString().replace("-","");
+        String fileName = uuid + ext;
+
+        ApplicationHome applicationHome = new ApplicationHome(this.getClass());
+        String pre =applicationHome.getDir().getParentFile().getParentFile().getParentFile().getAbsolutePath() +
+                "\\shopDemo\\public\\images\\shops\\";
+        String path = pre + fileName;
+        try {
+            file.transferTo(new File(path));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return fileName;
+    }
 
     @DeleteMapping(value = "/shopItems")
     @ResponseStatus(HttpStatus.OK)
