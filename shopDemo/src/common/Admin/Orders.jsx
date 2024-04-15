@@ -182,7 +182,7 @@ maxRows={1}  fullWidth defaultValue={current_data.tfn}/></div>
             wrapClassName={'web'}
             footer={null}
             >
-            <div className="productDetail" >
+            <div className="productDetail" onClick={function(){window.print()}}>
             <div className="contentBox">------------------------------</div>
             <div className="contentBox">YesCon</div>
             <div className="contentBox">------------------------------</div>

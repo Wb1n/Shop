@@ -17,6 +17,24 @@ public class JwtUtil {
                 .setHeaderParam("alg","HS256")
                 //playload
                 .claim("username","admin")
+                .claim("role","user")
+                .setSubject("admin-test")
+                .setExpiration(new Date(System.currentTimeMillis()+time))
+                .setId(UUID.randomUUID().toString())
+                //signature
+                .signWith(SignatureAlgorithm.HS256,signature)
+                .compact();
+        return jwtToken;
+
+    }
+    public static String creatAdminToken(){
+        JwtBuilder jwtBuilder = Jwts.builder();
+        String jwtToken = jwtBuilder
+                //header
+                .setHeaderParam("typ","JWT")
+                .setHeaderParam("alg","HS256")
+                //playload
+                .claim("username","admin")
                 .claim("role","admin")
                 .setSubject("admin-test")
                 .setExpiration(new Date(System.currentTimeMillis()+time))
@@ -27,7 +45,6 @@ public class JwtUtil {
         return jwtToken;
 
     }
-
     public static boolean checkToken(String token){
         if(token == null){
             return false;
@@ -35,11 +52,41 @@ public class JwtUtil {
         try {
 
             Jws<Claims> claimsJws = Jwts.parser().setSigningKey(signature).parseClaimsJws(token);
+            Claims claims =claimsJws.getBody();
+
+            System.out.println(claims.get("username"));
+            System.out.println(claims.get("role"));
+            System.out.println(claims.getSubject());
+            System.out.println(claims.getExpiration());
+
+            return claims.get("role").equals("user");
+
         } catch (Exception e) {
             return false;
         }
-            return true;
         }
         }
+    public static boolean checkAdminToken(String token){
+        if(token == null){
+            return false;
+        }else {
+            try {
+
+                Jws<Claims> claimsJws = Jwts.parser().setSigningKey(signature).parseClaimsJws(token);
+                Claims claims =claimsJws.getBody();
+
+                System.out.println(claims.get("username"));
+                System.out.println(claims.get("role"));
+                System.out.println(claims.getSubject());
+                System.out.println(claims.getExpiration());
+
+                return claims.get("role").equals("admin");
+
+            } catch (Exception e) {
+                return false;
+            }
+        }
+    }
 }
+
 

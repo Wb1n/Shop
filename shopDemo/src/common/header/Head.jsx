@@ -27,9 +27,9 @@ const Head = () => {
           </div>
           <div className='right row RText'>
           <i className='fa fa-phone'></i>
-            <label> +88012 3456 7894</label>
+            <label> 3665059897</label>
             <i className='fa fa-envelope'></i>
-            <label> support@ui-lib.com</label>
+            <label> yescom868@gmail.com</label>
             
           </div>
         </div>

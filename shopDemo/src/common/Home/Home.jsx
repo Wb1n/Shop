@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useState } from "react"
 import "./style.css"
 import axios from "axios"
@@ -6,7 +6,8 @@ import { TextField } from "@mui/material"
 import Modal from "antd/es/modal/Modal"
 import logo from "../../components/assets/images/logo.jpg"
 const Home = () => {
-    
+    axios.defaults.baseURL = 'http://localhost:8080/api/v1';
+    axios.defaults.headers.post ['Content-Type'] = 'application/json';
     const [visiable1,setVisiable1] = useState(false);
     const [pass,setPass] = useState(true)
     const User = {
@@ -24,11 +25,14 @@ const Home = () => {
   }).then(response=>{
     console.log('res',response.data)
     if(response.data !== ''){
+      console.log("pass")
     setPass(true)
     localStorage.setItem("access-admin",JSON.stringify(response.data.token))
     window.open('/home','_self')
+
     return response;
     }else{
+      console.log('unpass')
     setPass(false)
     }
    
@@ -37,9 +41,7 @@ const Home = () => {
     const login = ()=>{
       setVisiable1(true)
     }
-
     
-
     const tip = ()=>{
       if(pass === true){
         return null;

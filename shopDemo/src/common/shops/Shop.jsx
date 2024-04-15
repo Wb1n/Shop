@@ -1,9 +1,55 @@
 import React from "react"
 import Catg from "./Catg"
 import ShopCart from "./ShopCart"
+import { useEffect } from "react"
+import axios from "axios"
 import "./style.css"
 
-const Shop = ({ setState,setRes,ShopData, addToCart, shopItems, setBrandFilter,brandItems}) => {
+const Shop = ({ setBrandData,setShopData,setState,setRes,ShopData, addToCart, shopItems, setBrandFilter,brandItems}) => {
+
+  useEffect(() => {
+    var access = JSON.parse(localStorage.getItem('access-admin'))
+    axios({
+      method:'GET',
+      url:'/check',
+      headers:{
+        'token':access
+      }
+    }).then(response=>{
+      console.log("chenck",response)
+      if(response.data !== false){
+        axios(
+          {url: '/shopItem',method:'get'})
+          .then(response => {
+              console.log('/a', response.data)
+              setShopData(response.data)
+              
+              return response.data
+          }, error => {
+              console.log('错误啊', error.message)
+          })
+        axios(
+            {url: '/branddata',method:'get'})
+            .then(response => {
+                console.log('/a', response.data)
+                setBrandData(response.data)
+                
+                return response.data
+            }, error => {
+                console.log('错误啊', error.message)
+            }) 
+        console.log(response.data)
+      }else{
+        alert("请重新登录")
+        
+          window.open('/','_self')
+        
+      }
+      
+    })
+    
+      
+ }, [])
 
 
   return (

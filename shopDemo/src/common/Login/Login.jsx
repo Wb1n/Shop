@@ -19,7 +19,7 @@ const Login = () => {
       console.log('user',User);
       axios({
           method:'GET',
-          url:'/login',
+          url:'/adminlogin',
           params:User
     }).then(response=>{
       console.log('res',response.data)

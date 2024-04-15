@@ -20,46 +20,7 @@ function App() {
   const [CartItem, setCartItem] = useState([])
   const [ShopData,setShopData] = useState([])
   const [res,setRes] = useState([])
-    useEffect(() => {
-      
-      var access = JSON.parse(localStorage.getItem('access-admin'))
-      axios({
-        method:'GET',
-        url:'/check',
-        headers:{
-          'token':access
-        }
-      }).then(response=>{
-        console.log("chenck",response)
-        if(response.data !== false){
-          axios(
-            {url: '/shopItem',method:'get'})
-            .then(response => {
-                console.log('/a', response.data)
-                setShopData(response.data)
-                
-                return response.data
-            }, error => {
-                console.log('错误啊', error.message)
-            })
-            axios(
-              {url: '/branddata',method:'get'})
-              .then(response => {
-                  console.log('/a', response.data)
-                  setBrandData(response.data)
-                  
-                  return response.data
-              }, error => {
-                  console.log('错误啊', error.message)
-              }) 
-          console.log(response.data)
-        }else{
-        }
-        
-      })
-      
-        
-   }, [])
+   
    
   const addToCart = (product) => {
     
@@ -125,7 +86,7 @@ function App() {
 
           <Route path='/home' exact>
             <Header setState={setState} setRes={setRes} CartItem={CartItem} />
-            <Pages setState={setState} setRes={setRes} CartItem={CartItem} ShopData={filteredShopItems} addToCart={addToCart}  setBrandFilter={setBrandFilter} brandItems={brandData} />
+            <Pages setBrandData={setBrandData} setShopData={setShopData} setState={setState} setRes={setRes} CartItem={CartItem} ShopData={filteredShopItems} addToCart={addToCart}  setBrandFilter={setBrandFilter} brandItems={brandData} />
           
           </Route>
           <Route path='/cart' exact>

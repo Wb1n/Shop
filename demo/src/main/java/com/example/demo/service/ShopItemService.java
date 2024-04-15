@@ -48,6 +48,9 @@ public class ShopItemService {
     public List<OrderDTO> orderDatas() {
         return orderRepository.findAll().stream().map(OrderUtil::mapToOrderDTO).toList();
     }
+    public List<UserDTO> userDatas() {
+        return userRepository.findAll().stream().map(UserUtil::mapToUserDTO).toList();
+    }
 
 
     public ShopItemDTO shopItem(Integer Id) {
@@ -64,6 +67,11 @@ public class ShopItemService {
         return orderRepository.findByNameLike(name).stream().map(OrderUtil::mapToOrderDTO).toList();
     }
 
+    public  List<UserDTO> UserSearch(String name) {
+
+        return userRepository.findByNameLike(name).stream().map(UserUtil::mapToUserDTO).toList();
+    }
+
     public ShopItemDTO save(ShopItemRequest emp) {
         ShopItem shopItem = ShopItem.builder().id(emp.getId()).img(emp.getImg()).name(emp.getName()).brand(emp.getBrand()).price(emp.getPrice()).qty(emp.getQty()).build();
         return ShopItemUtil.mapToShopItemDTO(repository.save(shopItem));
@@ -72,6 +80,10 @@ public class ShopItemService {
     public OrderDTO saveOrder(OrdersRequest emp) {
         OrderData orderData = OrderData.builder().id(emp.getId()).time(emp.getTime()).name(emp.getName()).address(emp.getAddress()).tfn(emp.getTfn()).number(emp.getNumber()).product(emp.getProduct()).build();
         return OrderUtil.mapToOrderDTO(orderRepository.save(orderData));
+    }
+    public UserDTO saveUser(UsersRequest emp) {
+        User user = User.builder().id(emp.getId()).name(emp.getName()).address(emp.getAddress()).tfn(emp.getTfn()).number(emp.getNumber()).password(emp.getPassword()).build();
+        return UserUtil.mapToUserDTO(userRepository.save(user));
     }
 
     public String delete(Integer Id) {
@@ -85,6 +97,13 @@ public class ShopItemService {
         orderRepository.delete(orderData);
         return "Orders with id=" + Id + " removed";
     }
+
+    public String deleteUser(Integer Id) {
+        User user = userRepository.findById(Id).orElseThrow(() -> UserUtil.notFound(Id));
+        userRepository.delete(user);
+        return "User with id=" + Id + " removed";
+    }
+
 
     public String deleteAll() {
         List<ShopItem> shopItems = repository.findAll();
