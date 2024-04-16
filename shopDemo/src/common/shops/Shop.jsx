@@ -40,7 +40,7 @@ const Shop = ({ setBrandData,setShopData,setState,setRes,ShopData, addToCart, sh
             }) 
         console.log(response.data)
       }else{
-        alert("请重新登录")
+        alert("please log in again")
         
           window.open('/','_self')
         

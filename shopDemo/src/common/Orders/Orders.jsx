@@ -1,11 +1,10 @@
-import React ,{useState}from "react"
+import React ,{useState,useEffect }from "react"
 import "./style.css"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
 import { TextField} from "@mui/material"
 import  {Modal}  from "antd"
 import moment from "moment"
 import axios from "axios"
-
 import logo from "../../components/assets/images/logo.jpg"
 
 
@@ -109,11 +108,32 @@ const Confirm =()=>{
   }
   
 }
-
- 
 const openModal = () =>{setVisiable(true)}
 const openModal1 = () =>{setVisiable1(true)}
 const openModal2 = () =>{setVisiable2(true)}
+useEffect(() => {
+  var access = JSON.parse(localStorage.getItem('access-admin'))
+  axios({
+    method:'GET',
+    url:'/check',
+    headers:{
+      'token':access
+    }
+  }).then(response=>{
+    console.log("chenck",response)
+    if(response.data !== false){
+      
+    }else{
+      alert("please log in again")
+      
+        window.open('/','_self')
+      
+    }
+    
+  })
+  
+    
+}, [])
   return (
     <> 
     <div  className=" header">

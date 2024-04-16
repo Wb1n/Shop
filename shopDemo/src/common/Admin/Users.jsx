@@ -56,7 +56,7 @@ const Users = ({})=> {
                 console.log('错误', error.message)
               })
         }else{
-            alert("账号或密码不能为空")
+            alert("the account or password cannot be empty!")
         }
          
 }
@@ -147,7 +147,7 @@ const Users = ({})=> {
         <div>
             {content()}
             <Modal
-                  title="添加用户"
+                  title="add user"
                   open={visiable2}
                   onOk={add}
                   onCancel={function(){setVisiable2(false);setAmount(amount+1);}}
@@ -164,7 +164,7 @@ const Users = ({})=> {
                     </div>
                     </Modal>
             <Modal
-                  title="修改用户"
+                  title="modify user"
                   open={visiable}
                   onOk={put}
                   onCancel={function(){setVisiable(false);setAmount(amount+1);}}
@@ -181,13 +181,13 @@ const Users = ({})=> {
                     </div>
                   </Modal>
             <Modal
-            title={"提示"}
+            title={"tip"}
             open={visiable1}
             onOk={remove}
             onCancel={function(){setVisiable1(false);setAmount(amount+1);}}
             destroyOnClose={true}
             >
-              <p>确认删除？</p>
+              <p>confirm deletion?</p>
                   </Modal>     
         </div>
         

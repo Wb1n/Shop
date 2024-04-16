@@ -170,7 +170,7 @@ const Product = ({})=> {
         <div>
             {content()}
             <Modal
-                  title="添加库存内容"
+                  title="add product"
                   open={visiable2}
                   onOk={add}
                   onCancel={function(){setVisiable2(false)}}
@@ -194,7 +194,7 @@ const Product = ({})=> {
                      </div>
                      </Modal>
             <Modal
-                  title="修改商品内容"
+                  title="modify product"
                   open={visiable}
                   onOk={put}
                   onCancel={function(){setVisiable(false)}}
@@ -217,13 +217,13 @@ const Product = ({})=> {
                     </div>
                   </Modal>
             <Modal
-            title={"提示"}
+            title={"tip"}
             open={visiable1}
             onOk={remove}
             onCancel={function(){setVisiable1(false)}}
             destroyOnClose={true}
             >
-              <p>确认删除？</p>
+              <p>confirm deletion?</p>
                   </Modal>     
         </div>
         

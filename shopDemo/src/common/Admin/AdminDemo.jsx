@@ -18,7 +18,7 @@ useEffect(() => {
   }).then(response=>{
     console.log("chenck",response)
     if(response.data !== true){
-      alert("请重新登录")
+      alert("please log in again")
       
         window.open('/login','_self')
       

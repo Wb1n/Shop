@@ -1,7 +1,8 @@
 import React ,{ useState } from "react"
 import "./style.css"
 import { Link } from "react-router-dom"
-
+import { useEffect } from "react"
+import axios from "axios"
 import logo from "../../components/assets/images/logo.jpg"
 import  {Modal}  from "antd"
 
@@ -21,8 +22,6 @@ const Cart = ({ CartItem, addToCart, decreaseQty, removeQty }) => {
     setVisiable(false)
   };
   const openModal = () =>{setVisiable(true)}
- 
-  
   const isPass =()=>{
     if(CartItem.length !== 0 ){
     return(
@@ -43,6 +42,29 @@ const Cart = ({ CartItem, addToCart, decreaseQty, removeQty }) => {
     
   }
   // prodcut qty total
+  useEffect(() => {
+    var access = JSON.parse(localStorage.getItem('access-admin'))
+    axios({
+      method:'GET',
+      url:'/check',
+      headers:{
+        'token':access
+      }
+    }).then(response=>{
+      console.log("chenck",response)
+      if(response.data !== false){
+        
+      }else{
+        alert("please log in again")
+        
+          window.open('/','_self')
+        
+      }
+      
+    })
+    
+      
+ }, [])
   return (
     <>
       <div  className=" header">

@@ -5,6 +5,7 @@
   margin-top: 2%;
   padding: 2%;
   height: 95%;
+  width: 26%;
 }
 .chead h1 {
   font-size: 1rem;
@@ -47,7 +48,10 @@
 }
 
 .shop .contentWidth {
+  
   margin-left: 5%;
+  width: 70%;
+  height: 1000px;
 }
 
 .grid1 {

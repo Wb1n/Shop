@@ -138,7 +138,7 @@ function content(){
         <div>
             {content()}
             <Modal
-            title={"修改订单内容"}
+            title={"modify order"}
             open={visiable}
             onOk={put}
             onCancel={function(){setVisiable(false)}}
@@ -164,13 +164,13 @@ maxRows={1}  fullWidth defaultValue={current_data.tfn}/></div>
            </div>
                   </Modal>
             <Modal
-            title={"提示"}
+            title={"tip"}
             open={visiable1}
             onOk={remove}
             onCancel={function(){setVisiable1(false)}}
             destroyOnClose={true}
             >
-              <p>确认删除？</p>
+              <p>confirm deletion?</p>
                   </Modal>
             <Modal
             title={null}

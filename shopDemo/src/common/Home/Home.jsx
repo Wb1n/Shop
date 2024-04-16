@@ -66,10 +66,12 @@ const Home = () => {
           <i> welcome to YesCom!</i>
           </div>
           <div className='right row RText'>
-          <i className='fa fa-phone'></i>
-            <label> 3665059897</label>
-            <i className='fa fa-envelope'></i>
+          <i className='fa fa-envelope'></i>
             <label> yescom868@gmail.com</label>
+            <i className='fa fa-phone'></i>
+            <label> 3665059897</label>
+            <i>Whatsapp:</i>
+            <label> 3665059897</label>
           </div>
         </div>
       </section>
