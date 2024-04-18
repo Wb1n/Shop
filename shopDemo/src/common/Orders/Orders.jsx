@@ -35,8 +35,8 @@ const add =(order)=>{
 
 
     
-    // console.log('call add', user)
-    // console.log('call add order', order)
+    console.log('call add', user)
+    console.log('call add order', order)
     axios({
       
       method:'POST',
@@ -44,11 +44,11 @@ const add =(order)=>{
       data: order
     }).then(response => {
       openModal();
-      // console.log('/a', response.data)
+      console.log('/a', response.data)
       return response.data
     }, error => {
       openModal2();
-      // console.log('错误', error.message)
+      console.log('错误', error.message)
     })
 
   
@@ -97,8 +97,8 @@ const Confirm =()=>{
     
     }
   setUser(order)
-  // console.log('product',order.product)
-  // console.log('confirm', order)
+  console.log('product',order.product)
+  console.log('confirm', order)
   add(order)
   
 }

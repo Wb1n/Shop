@@ -9,20 +9,19 @@ import Login from "./common/Login/Login"
 import Cart from "./common/Cart/Cart"
 import Home from "./common/Home/Home"
 import axios from "axios"
-import { useEffect } from "react"
-import { createHashHistory } from "history"
 
 function App() {
-  axios.defaults.baseURL = 'http://localhost:8080/api/v1';
-  axios.defaults.headers.post ['Content-Type'] = 'application/json';
+  axios.defaults.baseURL = 'http://114.132.184.209:8080/api/v1';
   
+  axios.defaults.headers.post['Content-Type'] ='application/json';
+  // axios.defaults.withCredentials = true;
   const [state,setState] = useState(0)
   const [brandData,setBrandData]=useState([])
   const [CartItem, setCartItem] = useState([])
   const [ShopData,setShopData] = useState([])
   const [res,setRes] = useState([])
    
-   
+ 
   const addToCart = (product) => {
     
     const productExit = CartItem.find((item) => item.id === product.id)
@@ -55,7 +54,7 @@ function App() {
 
   let filteredShopItems
   if (!brandFilter) {
-    if(state===0){
+    if(state === 0){
       filteredShopItems = ShopData
     }else{
       filteredShopItems = res

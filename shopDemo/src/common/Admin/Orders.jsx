@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 import  {Modal}  from "antd"
 import { TextField } from "@mui/material"
-const Orders = ({})=> {   
+const Orders = ()=> {   
     const [data,setData] = useState([''])
     //  编辑弹窗
     const [visiable,setVisiable] = useState(false);
@@ -43,7 +43,7 @@ const Orders = ({})=> {
             name:document.getElementById('modifyName1').value,
             number:document.getElementById('modifyNumber1').value,
             address:document.getElementById('modifyAddress1').value,
-            product:document.getElementById('modifyProduct1').value,
+            product:current_data.product,
             tfn:document.getElementById('modifyTFN1').value,
           }}).then(response => {
             // console.log('/a', response.data)
@@ -56,7 +56,7 @@ const Orders = ({})=> {
     const remove =()=>{
         axios({
           method:'delete',
-          url:'/ordersdata'+"/"+current_data.id
+          url:'/ordersdata/'+current_data.id
         }).then(res => {
           setVisiable1(false)
           setAmount(amount+1)
@@ -67,7 +67,7 @@ const Orders = ({})=> {
     if(input!==null){
         axios({
             method:'get',
-            url:'/searchOrders'+"/"+input
+            url:'/searchOrders/'+input
             }).then(res => {
             // console.log(res.data)
             setData(res.data)

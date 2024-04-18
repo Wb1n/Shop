@@ -1,13 +1,13 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useState } from "react"
 import "./style.css"
 import axios from "axios"
 import { TextField } from "@mui/material"
-import Modal from "antd/es/modal/Modal"
+import {Modal} from "antd"
 import logo from "../../components/assets/images/logo.jpg"
 const Home = () => {
-    axios.defaults.baseURL = 'http://localhost:8080/api/v1';
-    axios.defaults.headers.post ['Content-Type'] = 'application/json';
+    axios.defaults.baseURL = 'http://114.132.184.209:8080/api/v1';
+    // axios.defaults.headers.post['Content-Type'] = 'application/json';
     const [visiable1,setVisiable1] = useState(false);
     const [pass,setPass] = useState(true)
     const User = {

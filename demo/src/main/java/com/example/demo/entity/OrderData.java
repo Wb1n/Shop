@@ -5,11 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Proxy;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Proxy(lazy = false)
+
 @Entity
 @Table(name = "ordersdata")
 public class OrderData {

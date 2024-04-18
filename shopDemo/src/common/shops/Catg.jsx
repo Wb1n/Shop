@@ -1,5 +1,4 @@
-import React, { useEffect } from "react"
-import { useState } from "react"
+import React, { useState,useEffect } from "react"
 import axios from "axios"
 import { Menu } from 'antd';
 
@@ -16,13 +15,13 @@ const Catg = ({ setState,setRes}) => {
     };
   }
   useEffect(()=>{
-    if(searchObj !== "undefined all"){ axios({
+    if(searchObj !== "undefined all"){ 
+      axios({
       method:'get',
       url:'/search/'+searchObj
       }).then(res => {
       setRes(res.data)
       setState(1)
-      // console.log(res)
       })}else{
         setState(0);
       }

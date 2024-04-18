@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import  {Modal, Upload, message}  from "antd"
 import { TextField } from "@mui/material"
-import { PlusOutlined } from "@ant-design/icons"
-import { Spin } from "antd";
-const Product = ({})=> {   
-    const [data,setData] = useState([''])
+import {Modal} from "antd"
+const Product = ()=> {   
+    const [data,setData] = useState([])
     //  编辑弹窗
     const [visiable,setVisiable] = useState(false);
     //  删除弹窗
@@ -33,8 +31,6 @@ const Product = ({})=> {
             .then(response => {
                 setData(response.data)
                 return response.data
-            }, error => {
-                // console.log('错误啊', error.message)
             })
         },[amount])
     const add =()=>{
@@ -80,7 +76,7 @@ const Product = ({})=> {
     const remove =()=>{
     axios({
       method:'delete',
-      url:'/shopItems'+"/"+current_data.id
+      url:'/shopItems/'+current_data.id
       }).then(res => {
         setVisiable1(false)
         setAmount(amount+1)
@@ -93,7 +89,7 @@ const Product = ({})=> {
     if(input!==null){
         axios({
             method:'get',
-            url:'/search'+"/"+input
+            url:'/search/'+input
         }).then(res => {
             setData(res.data)
             // console.log(res.data)

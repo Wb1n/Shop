@@ -1,9 +1,8 @@
 import React from "react"
 import "./style.css"
-import { Link } from "react-router-dom/cjs/react-router-dom.min"
 import { Input } from "@mui/material"
 import { useState } from "react"
-import Modal from "antd/es/modal/Modal"
+import {Modal} from "antd"
 import axios from "axios"
 const Login = () => {
     const User = {

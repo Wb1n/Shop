@@ -22,7 +22,7 @@ const Search = ({ setState,setRes, CartItem }) => {
 
     axios({
       method:'get',
-      url:'/search'+"/"+inputValue
+      url:'/search/'+inputValue
       }).then(res => {
       setRes(res.data)
       setState(1)
