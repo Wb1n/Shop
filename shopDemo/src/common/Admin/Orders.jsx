@@ -27,11 +27,11 @@ const Orders = ({})=> {
         axios(
             {url: '/orderdata',})
             .then(response => {
-                console.log('/a', response.data)
+                // console.log('/a', response.data)
                 setData(response.data)
                 return response.data
             }, error => {
-                 console.log('错误啊', error.message)
+                //  console.log('错误啊', error.message)
                 })},[amount])
     const put =()=>{
         axios({
@@ -46,12 +46,12 @@ const Orders = ({})=> {
             product:document.getElementById('modifyProduct1').value,
             tfn:document.getElementById('modifyTFN1').value,
           }}).then(response => {
-            console.log('/a', response.data)
+            // console.log('/a', response.data)
             setVisiable(false)
             setAmount(amount+1)
             return response.data
           }, error => {
-            console.log('错误', error.message)
+            // console.log('错误', error.message)
           })}
     const remove =()=>{
         axios({
@@ -60,7 +60,7 @@ const Orders = ({})=> {
         }).then(res => {
           setVisiable1(false)
           setAmount(amount+1)
-          console.log(res) 
+        //   console.log(res) 
           })}
     const search = ()=>{
         var input = document.getElementById("searchInPut").value
@@ -69,7 +69,7 @@ const Orders = ({})=> {
             method:'get',
             url:'/searchOrders'+"/"+input
             }).then(res => {
-            console.log(res.data)
+            // console.log(res.data)
             setData(res.data)
             })}
 }
@@ -96,7 +96,10 @@ function content(){
                             return (<div className="productContent" key={a}>•{i}</div>)
                         })
                         return p4
-                    }else return(console.log('error'))
+                    }else return(
+                        // console.log('error')
+                        null
+                    )
                 }
             return (
                 <div className="dataBox" key={i} >

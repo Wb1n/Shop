@@ -17,22 +17,22 @@ const Home = () => {
     const check = ()=>{
       User.name = (document.getElementById('Name').value)
       User.password = document.getElementById('Password').value
-      console.log('user',User)
+      // console.log('user',User)
       axios({
         method:'GET',
         url:'/login',
         params:User
   }).then(response=>{
-    console.log('res',response.data)
+    // console.log('res',response.data)
     if(response.data !== ''){
-      console.log("pass")
+      // console.log("pass")
     setPass(true)
     localStorage.setItem("access-admin",JSON.stringify(response.data.token))
     window.open('/home','_self')
 
     return response;
     }else{
-      console.log('unpass')
+      // console.log('unpass')
     setPass(false)
     }
    

@@ -28,7 +28,7 @@ const Users = ({})=> {
                 setData(response.data)
                 return response.data
             }, error => {
-                console.log('错误啊', error.message)
+                // console.log('错误啊', error.message)
             })
         setCurrent_data({
             id:'',
@@ -40,20 +40,20 @@ const Users = ({})=> {
 
         current_data.name=document.getElementById('addName').value
         current_data.password=document.getElementById('addPassWord').value
-        console.log("name",current_data.name)
-        console.log("psw",current_data.password)
+        // console.log("name",current_data.name)
+        // console.log("psw",current_data.password)
         if(current_data.name !== '' && current_data.password !== ''){
             axios({
                 method:'POST',
                 url:'/addUser',
                 data: current_data
             }).then(response => {
-                console.log('/a', response.data)
+                // console.log('/a', response.data)
                 setVisiable2(false)
                 setAmount(amount+1)
                 return response.data
               }, error => {
-                console.log('错误', error.message)
+                // console.log('错误', error.message)
               })
         }else{
             alert("the account or password cannot be empty!")
@@ -70,24 +70,24 @@ const Users = ({})=> {
         password:document.getElementById('modifyPassWord').value
     }
     }).then(response => {
-      console.log('/a', response.data)
+    //   console.log('/a', response.data)
       setVisiable(false)
       setAmount(amount+1)
       return response.data
     }, error => {
-      console.log('错误', error.message)
+    //   console.log('错误', error.message)
     })
 }
     const remove =()=>{
-        console.log('del')
-        console.log("id",current_data.id)
+        // console.log('del')
+        // console.log("id",current_data.id)
     axios({
       method:'delete',
       url:'/deleteUser'+"/"+current_data.id
       }).then(res => {
         setVisiable1(false)
         setAmount(amount+1)
-        console.log(res)
+        // console.log(res)
       })
 }
     const search = ()=>{
@@ -99,7 +99,7 @@ const Users = ({})=> {
             url:'/searchUsers'+"/"+input
         }).then(res => {
             setData(res.data)
-            console.log(res.data)
+            // console.log(res.data)
         })
   }
 }

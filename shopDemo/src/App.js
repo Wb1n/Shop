@@ -10,6 +10,7 @@ import Cart from "./common/Cart/Cart"
 import Home from "./common/Home/Home"
 import axios from "axios"
 import { useEffect } from "react"
+import { createHashHistory } from "history"
 
 function App() {
   axios.defaults.baseURL = 'http://localhost:8080/api/v1';
@@ -62,18 +63,17 @@ function App() {
     
   } else {
     // Array.filter
-    console.log(brandFilter)
+    // console.log(brandFilter)
     filteredShopItems = ShopData.filter((item) => {
       // string.includes
-      console.log(item, item.brand, brandFilter, item.brand.includes(brandFilter))
+      // console.log(item, item.brand, brandFilter, item.brand.includes(brandFilter))
       return item.brand.includes(brandFilter)
     })
-    console.log(ShopData, filteredShopItems)
+    // console.log(ShopData, filteredShopItems)
   }
-
   return (
     <>
-      <Router>
+      <Router >
         
           
           
@@ -101,7 +101,7 @@ function App() {
             <Login />
           </Route>
 
-          <Route path='/admin'>
+          <Route path='/admin'exact>
               <AdminDemo  />
             </Route>
         </Switch>

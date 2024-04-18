@@ -16,13 +16,13 @@ const Login = () => {
     const login=(prop)=>{
       User.name = (document.getElementById('userName').value)
       User.password = document.getElementById('password').value
-      console.log('user',User);
+      // console.log('user',User);
       axios({
           method:'GET',
           url:'/adminlogin',
           params:User
     }).then(response=>{
-      console.log('res',response.data)
+      // console.log('res',response.data)
       if(response.data !== ''){
       localStorage.setItem("access-admin",JSON.stringify(response.data.token))
       window.open('/admin','_self')

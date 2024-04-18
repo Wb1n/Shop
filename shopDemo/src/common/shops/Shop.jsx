@@ -16,29 +16,29 @@ const Shop = ({ setBrandData,setShopData,setState,setRes,ShopData, addToCart, sh
         'token':access
       }
     }).then(response=>{
-      console.log("chenck",response)
+      // console.log("chenck",response)
       if(response.data !== false){
         axios(
           {url: '/shopItem',method:'get'})
           .then(response => {
-              console.log('/a', response.data)
+              // console.log('/a', response.data)
               setShopData(response.data)
               
               return response.data
           }, error => {
-              console.log('错误啊', error.message)
+              // console.log('错误啊', error.message)
           })
         axios(
             {url: '/branddata',method:'get'})
             .then(response => {
-                console.log('/a', response.data)
+                // console.log('/a', response.data)
                 setBrandData(response.data)
                 
                 return response.data
             }, error => {
-                console.log('错误啊', error.message)
+                // console.log('错误啊', error.message)
             }) 
-        console.log(response.data)
+        // console.log(response.data)
       }else{
         alert("please log in again")
         

@@ -26,7 +26,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -34,6 +33,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = "/api/v1")
 public class Index {
+
+
 
     private final String ADMINUSERNAME = "admin";
     private final String ADMINPASSWORD = "123123";
@@ -166,8 +167,9 @@ public class Index {
 
         ApplicationHome applicationHome = new ApplicationHome(this.getClass());
         String pre =applicationHome.getDir().getParentFile().getParentFile().getParentFile().getAbsolutePath() +
-                "\\shopDemo\\public\\images\\shops\\";
+                "\\demo\\src\\main\\resources\\public\\images\\shops\\";
         String path = pre + fileName;
+        System.out.println(path);
         try {
             file.transferTo(new File(path));
         } catch (IOException e) {

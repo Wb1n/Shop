@@ -15,7 +15,7 @@ const Search = ({ setState,setRes, CartItem }) => {
     var input = document.getElementById("searchInPut").value
     setValue(input)
     setState(0)
-    console.log(input)
+    // console.log(input)
   }
   // 搜索方法
   const search=()=>{
@@ -26,7 +26,7 @@ const Search = ({ setState,setRes, CartItem }) => {
       }).then(res => {
       setRes(res.data)
       setState(1)
-      console.log(res)
+      // console.log(res)
       })
 
   }

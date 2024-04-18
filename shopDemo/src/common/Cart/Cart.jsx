@@ -13,12 +13,12 @@ const Cart = ({ CartItem, addToCart, decreaseQty, removeQty }) => {
   const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.price, 0)
   const onOK = () =>{
     
-    console.log("编写on")
+    // console.log("编写on")
     closeModal();
   };
   const closeModal = () =>{
     
-    console.log("close")
+    // console.log("close")
     setVisiable(false)
   };
   const openModal = () =>{setVisiable(true)}
@@ -51,7 +51,7 @@ const Cart = ({ CartItem, addToCart, decreaseQty, removeQty }) => {
         'token':access
       }
     }).then(response=>{
-      console.log("chenck",response)
+      // console.log("chenck",response)
       if(response.data !== false){
         
       }else{

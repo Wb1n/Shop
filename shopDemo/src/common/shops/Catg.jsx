@@ -22,7 +22,7 @@ const Catg = ({ setState,setRes}) => {
       }).then(res => {
       setRes(res.data)
       setState(1)
-      console.log(res)
+      // console.log(res)
       })}else{
         setState(0);
       }
@@ -76,10 +76,10 @@ const Catg = ({ setState,setRes}) => {
   getItem('all product','all')
   ];
   function onclick1(e){
-    console.log(e)
-    console.log(e.keyPath)
+    // console.log(e)
+    // console.log(e.keyPath)
     var value = e.keyPath[1] + ' ' + e.keyPath[0];
-    console.log(value)
+    // console.log(value)
     setObj(value)
   }
   return (

@@ -16,7 +16,7 @@ useEffect(() => {
       'token':access
     }
   }).then(response=>{
-    console.log("chenck",response)
+    // console.log("chenck",response)
     if(response.data !== true){
       alert("please log in again")
       

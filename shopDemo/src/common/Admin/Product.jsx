@@ -34,7 +34,7 @@ const Product = ({})=> {
                 setData(response.data)
                 return response.data
             }, error => {
-                console.log('错误啊', error.message)
+                // console.log('错误啊', error.message)
             })
         },[amount])
     const add =()=>{
@@ -43,18 +43,18 @@ const Product = ({})=> {
         current_data.price=parseInt(document.getElementById('addPrice').value)
         current_data.qty=parseInt(document.getElementById('addQty').value)
         
-        console.log(current_data)
+        // console.log(current_data)
           axios({
             method:'POST',
             url:'/shopItems',
             data: current_data
         }).then(response => {
-            console.log('/a', response.data)
+            // console.log('/a', response.data)
             setVisiable2(false)
             setAmount(amount+1)
             return response.data
           }, error => {
-            console.log('错误', error.message)
+            // console.log('错误', error.message)
           }) 
 }
     const put =()=>{
@@ -69,12 +69,12 @@ const Product = ({})=> {
         qty:document.getElementById('modifyQty').value,
         img:current_data.img}
     }).then(response => {
-      console.log('/a', response.data)
+    //   console.log('/a', response.data)
       setVisiable(false)
       setAmount(amount+1)
       return response.data
     }, error => {
-      console.log('错误', error.message)
+    //   console.log('错误', error.message)
     })
 }
     const remove =()=>{
@@ -84,7 +84,7 @@ const Product = ({})=> {
       }).then(res => {
         setVisiable1(false)
         setAmount(amount+1)
-        console.log(res)
+        // console.log(res)
       })
 }
     const search = ()=>{
@@ -96,7 +96,7 @@ const Product = ({})=> {
             url:'/search'+"/"+input
         }).then(res => {
             setData(res.data)
-            console.log(res.data)
+            // console.log(res.data)
         })
   }
 }
@@ -114,7 +114,7 @@ const Product = ({})=> {
             url:'/upload',
             data: formData
         }).then(response => {
-            console.log('/a', response.data)
+            // console.log('/a', response.data)
             current_data.img='./images/shops/'+response.data
             return response.data
           })
