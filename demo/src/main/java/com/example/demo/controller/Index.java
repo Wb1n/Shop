@@ -109,7 +109,7 @@ public class Index {
 
     @GetMapping(value = "/userdata")
     @ResponseStatus(HttpStatus.OK)
-    public List<UserDTO> UserItems() { return shopItemService.userDatas();
+    public List<UserDTO> UserItems() {return shopItemService.userDatas();
     }
 
 
@@ -169,8 +169,8 @@ public class Index {
         String fileName = uuid + ext;
 
         ApplicationHome applicationHome = new ApplicationHome(this.getClass());
-        String pre =applicationHome.getDir().getParentFile().getParentFile().getParentFile().getAbsolutePath() +
-                "\\demo\\src\\main\\resources\\public\\images\\shops\\";
+        String pre =applicationHome.getSource().getParentFile() +
+                "\\img\\";
         String path = pre + fileName;
         System.out.println(path);
         try {

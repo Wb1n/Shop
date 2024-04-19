@@ -77,7 +77,7 @@ const Catg = ({ setState,setRes}) => {
   function onclick1(e){
     // console.log(e)
     // console.log(e.keyPath)
-    var value = e.keyPath[1] + ' ' + e.keyPath[0];
+    var value = e.keyPath[0];
     // console.log(value)
     setObj(value)
   }

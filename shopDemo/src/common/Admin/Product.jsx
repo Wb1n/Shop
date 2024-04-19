@@ -111,7 +111,7 @@ const Product = ()=> {
             data: formData
         }).then(response => {
             // console.log('/a', response.data)
-            current_data.img='./images/shops/'+response.data
+            current_data.img='/img/'+response.data
             return response.data
           })
     }
