@@ -65,7 +65,7 @@ const Home = () => {
           <div className='left1 row'>
           <i> welcome to YesCom!</i>
           </div>
-          <div className='right row RText'>
+          <div className='right1 row RText'>
           <i className='fa fa-envelope'></i>
             <label> yescom868@gmail.com</label>
             <i className='fa fa-phone'></i>

@@ -92,9 +92,7 @@ const Catg = ({ setState,setRes}) => {
           defaultOpenKeys={['apple']}
           defaultSelectedKeys={['apple']}
           onClick={onclick1}
-          // style={{
-          // width: 256,
-          // }}
+          style={{ minWidth: 130, flex: "auto"}}
           items={items}
         />
 
